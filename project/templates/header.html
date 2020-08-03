@@ -1,0 +1,23 @@
+
+<h1 >
+    {% if title is not none %}
+    {{ title }}
+    {% else %}
+    Home Page
+    {% endif %}
+</h1>
+<div class="main">   
+<ul>
+<li> <a href="#" class="home">YOBO Home</a> </li> 
+<li> <a href="#"  class="home"> About YOBO</a> </li>
+<li> <a  href="#"  class="home" "> Contact Us</a> </li>
+{% if not current_user.is_authenticated %}
+<li> <a  href="/login" > Sign In/</a> </li>
+<li> <a  href="/signup" class="sign"> Register</a> </li>
+{% else %}
+<li><a href="/logout">Logout</a></li>
+<li><a href="/profile">{{ current_user.name }}</a></li>
+<li class="click-in"><a  href="#" >Add Insertion </a></li>
+{% endif %}
+</ul>
+</div>
